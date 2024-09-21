@@ -16,20 +16,20 @@ timezone:
 
 title: vzgoll # the main title
 
-tagline: Record myself # it will display as the subtitle
+tagline: Recording myself # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  happy hacking!
+  Happy Hacking!
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
 url: "https://ukgoll.github.io/"
 
 github:
-  username: vzgoll # change to your GitHub username
+  username: ukgoll # change to your GitHub username
 
-twitter:
-  username: vzgoll # change to your Twitter username
+# twitter:
+#   username: vzgoll # change to your Twitter username
 
 social:
   # Change to your full name.
@@ -39,7 +39,7 @@ social:
   links:
     # The first element serves as the copyright owner's link
     # - https://twitter.com/username # change to your Twitter homepage
-    # - https://github.com/username # change to your GitHub homepage
+    - https://github.com/ukgoll # change to your GitHub homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
@@ -51,7 +51,7 @@ webmaster_verifications:
   alexa: # fill in your Alexa verification code
   yandex: # fill in your Yandex verification code
   baidu: # fill in your Baidu verification code
-  facebook: # fill in your Facebook verification code
+  # facebook: # fill in your Facebook verification code
 
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
@@ -98,7 +98,7 @@ theme_mode: # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar:
+avatar: 'assets/lib/avatar.jpg'
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
@@ -147,7 +147,7 @@ pwa:
     deny_paths:
       # - "/example"  # URLs match `<SITE_URL>/example/*` will not be cached by the PWA
 
-paginate: 10
+paginate: 15
 
 # The base URL of your site
 baseurl: ""
