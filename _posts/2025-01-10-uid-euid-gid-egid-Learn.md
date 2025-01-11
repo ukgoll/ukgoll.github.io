@@ -1,8 +1,8 @@
 ---
 title: "Linux uid euid gid egid"
 date: 2025-01-10 21:19:00 +0800
-categories: [Linux]
-tags: [Linux]
+categories: [Linux, APUE]
+tags: [Linux, APUE]
 ---
 # Preface
 这个博客用来记录学习 Linux 对于文件进程的 UID（真实用户ID），EUID（有效用户ID），GID（组ID），EGID（有效组ID），以及（set-user-id、set-group-user-id）的学习记录，花费了我不少时间去理解。
@@ -162,7 +162,7 @@ int main(int argc, char const *argv[])
 }
 ```
 
-致次，我理清了对于文件的三种理解。
+至次，我理清了对于文件的三种权限的理解。
 #### tips
 1. 删除文件，需要的是我们对于文件所在目录的 `wx` 写和执行权限，对于文件本身的权限无关。
 ```shell
