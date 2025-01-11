@@ -6,7 +6,6 @@ tags: [Linux]
 ---
 # Preface
 这个博客用来记录学习 Linux 对于文件进程的 UID（真实用户ID），EUID（有效用户ID），GID（组ID），EGID（有效组ID），以及（set-user-id、set-group-user-id）的学习记录，花费了我不少时间去理解。
-经过上面的过程，我们就有了一个普通用户 `nuser`，和 `root` 用户的
 ## 用户 ID 和设置 ID(各种 ID 的作用)
 对于一个进程来说，一般来说有一下关联的进程
 <table>
