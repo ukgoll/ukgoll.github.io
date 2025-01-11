@@ -139,6 +139,29 @@ cat btest/b.txt # cat: btest/b.txt: Permission denied
 ```
 你可以看到在，失去对目录 `x` 执行权限之后，就无法访问目录下的文件了。
 
+C code，O_SEARCH 表示的就是搜索，更加的直观，在去掉 `x` 权限之后，**open directory btest error: Permission denied**
+** (`O_SEARCH` is equal to `O_EXEC | O_DIRECTORY`)
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/fcntl.h>
+#include <unistd.h>
+#include <fcntl.h>
+
+
+int main(int argc, char const *argv[])
+{
+	int fd;
+	if((fd = open("./btest", O_SEARCH)) < 0){
+		perror("open directory btest error");
+		exit(EXIT_FAILURE);
+	}
+	printf("open directory btest success fd is: %d\n", fd);
+	close(fd);
+	return 0;
+}
+```
+
 致次，我理清了对于文件的三种理解。
 #### tips
 1. 删除文件，需要的是我们对于文件所在目录的 `wx` 写和执行权限，对于文件本身的权限无关。
