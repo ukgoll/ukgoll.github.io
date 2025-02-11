@@ -1,8 +1,8 @@
 ---
 title: "Linux group 使用"
-date: 2025-02-11 21:00:00 +0800
-categories: [Linux]
-tags: [Linux]
+date: 2025-02-11 11:00:00 +0800
+categories: [Linux, Shell]
+tags: [Linux, Shell]
 ---
 # Preface
 最近在开发 App 的时候，测试热更新的时候，遇到一个问题，关于权限的问题。我琢磨了一下，可以使用 **Linux group** 这个概念来解决：
