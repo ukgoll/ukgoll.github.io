@@ -45,6 +45,8 @@ ls -l $(which systemctl)
 
 
 这个默认的配置位于 `/etc/nginx/sites-available` 目录下的 `default` 文件。
+### root 操作
+使用 `root` 用户登陆操作：
 ```shell
 chgrp default hotupdate;
 chmod g+w default;
@@ -52,7 +54,12 @@ ls -l
 # total 4
 # -rw-rw-r-- 1 root hotupdate 2454 Feb 11 07:41 default
 ```
-在修改之后，修改 `root /var/www/html` 为自己的文件之后，对于我而言是 `/home/normaluser/nginx-html-test`，然后重启 nginx，`sudo systemctl restart nginx`。就可以看到新的 nginx 页面。
+### normaluser 操作
+使用 vim 修改操作  `/etc/nginx/sites-available/defalut`
+```shell
+vim default
+```
+修改 `root /var/www/html` 为自己的文件之后，对于我而言是 `/home/normaluser/nginx-html-test`，然后重启 nginx，`sudo systemctl restart nginx`。就可以看到新的 nginx 页面。
 ![nginx-modify](/assets/custome/nginx-modify.png "nginx-modify")
 
 好，思路可行，验证通过。
