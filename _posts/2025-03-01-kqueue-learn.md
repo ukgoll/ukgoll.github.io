@@ -352,9 +352,9 @@ done
 ```
 打开 server 服务器在测试运行 bash 脚本
 
-![相对较前的](../assets//custome//kq-b1.png)
+![相对较前的](../assets/custome/kq-b1.png)
 
-![相对较后的](../assets//custome//kq-a1.png)
+![相对较后的](../assets/custome/kq-a1.png)
 
 
 可以看到，并发处理的还是非常快的，当然，这个只是一个最简单的 Kqueue 并发服务器，想要用到生产实践中，还有很多很多的事情需要处理，我看过公司的 epoll 并发服务器，需要处理的细节还是非常多的。
