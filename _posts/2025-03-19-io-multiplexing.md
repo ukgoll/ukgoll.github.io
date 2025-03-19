@@ -1,13 +1,15 @@
 ---
-title: "服务器开发 - IO 多路复用"
-date: 2025-03-09 09:00:00 +0800
+title: "服务器开发 IO 多路复用"
+date: 2025-03-19 09:00:00 +0800
 categories: [Linux, IO, APUE]
 tags: [Linux, IO, APUE]
 ---
 # Preface
 记录学习 Tcp 服务器开发，以及 IO 多路复用的一些常用技术。主要也是把一些常用的记录下来，方便写的时候方便查询，毕竟书本还是太厚了，不方便查询。
+
 ## Socket
 socket api，也是套接字编程，服务器开发的入门基础，tcp 通信便是建立在 socket api 的基础上进行的通信。在学习的过程中，只是简单的考虑到 IPv4，不考虑 IPv6 的处理与兼容。
+
 ### IPv4 结构体
 结构体通过 `#include <netinet/in.h>` 导入
 ```c
@@ -150,6 +152,7 @@ int main(int argc, char const *argv[])
 
 
 ## IO 多路复用
+
 ### 客户端
 客户端由如下代码编写，这个使用 `select` 处理了从 `stdin` 读取输入的时候，`server` 突然关闭的情况，运行绑定在本地的 `6001` 端口。（读取的数据也是就是考虑在 256 之内）
 
@@ -250,6 +253,7 @@ int main(int argc, char const *argv[])
 
 
 ## 阻塞IO
+
 ### select 版本
 使用 select 处理多路复用还是比较麻烦的，**最主要的 fd_set 的长度被限制在了 1024（基本上**。
 编写的时候有一下需要注意的
