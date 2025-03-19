@@ -15,17 +15,17 @@ socket api，也是套接字编程，服务器开发的入门基础，tcp 通信
  * Internet address (a structure for historical reasons)
  */
 struct in_addr {
-	in_addr_t s_addr;
+  in_addr_t s_addr;
 };
 /*
  * Socket address, internet style.
  */
 struct sockaddr_in {
-	__uint8_t       sin_len;
-	sa_family_t     sin_family;
-	in_port_t       sin_port;
-	struct  in_addr sin_addr;
-	char            sin_zero[8];
+  __uint8_t       sin_len;
+  sa_family_t     sin_family;
+  in_port_t       sin_port;
+  struct  in_addr sin_addr;
+  char            sin_zero[8];
 };
 ```
 在一般的时候，我们只需要处理
@@ -58,7 +58,7 @@ bind(..., (struct sockaddr *)&server_addr, sizeof(server_addr));
    ```c
    # 这个结合 accept 函数非常好理解
 
-	 socklen_t client_len;
+   socklen_t client_len;
    struct sockaddr_in *client_addr = malloc(sizeof(struct sockaddr_in));
    if (!client_addr) {
        eexit("malloc failed");
@@ -384,9 +384,9 @@ poll 版本的 TCP 服务器，修改核心部分就可以了，也就是多路�
 
 ```c
 struct pollfd {
-	int     fd;
-	short   events;
-	short   revents;
+  int     fd;
+  short   events;
+  short   revents;
 };
 ```
 1. 注册的事件一定要处理，如何注册了但是没有处理的话，会一直触发 `poll` 函数。
