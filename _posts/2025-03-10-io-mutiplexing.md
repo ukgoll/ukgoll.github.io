@@ -246,11 +246,6 @@ int main(int argc, char const *argv[])
   return 0;
 }
 ```
-工具函数
-```c
-
-```
-
 
 ## 阻塞IO
 
