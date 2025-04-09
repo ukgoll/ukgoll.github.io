@@ -709,9 +709,3 @@ void set_non_blocking(int fd)
   print_ctime("设置非阻塞成功");
 }
 ```
-
-
-
-
-### kqueue 版本
-kqueue 版本的 Tcp 简单学习版本的在 [kqueue-learn](./2025-03-01-kqueue-learn.md) 中已有了，是阻塞版本，如下是一个非阻塞版本的，阻塞和非阻塞的概念。
