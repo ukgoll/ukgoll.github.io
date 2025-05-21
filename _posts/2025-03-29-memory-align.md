@@ -110,6 +110,12 @@ void test_stack_de(int times)
 
 好了，这就能直观的看到 stack 的高地址到低地址了
 
+原来在测试这个例子的时候，地址的差值是 48 bits，当时没有注意，今天在看 `x86_64 abi` 的时候，
+
+> Although the AMD64 architecture uses 64-bit pointers, implementations are only required to handle 48-bit addresses. Therefore, conforming processes may only use addresses from 0x00000000 00000000 to 0x00007fff ffffffff17.
+
+有说过了，虚拟地址空间只是用了 48 bit
+
 
 ### 基本类型的对齐
 对于基本的数据类型，都要按照类型的基本长度对齐，不同的平台的是不一样，学习应用的时候要多多注意
