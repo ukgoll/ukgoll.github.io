@@ -149,6 +149,16 @@ void print_basic_type_align()
 
 其中特意提到了 `32位` 和 `64位` 对于不同的类型使用的长度不同，需要注意的。
 
+在 c/c++ 语言中，不会为了内存的使用来调节结构体中各个字段的位置；它会按照对齐规则在各个字段中填充字节，所以为了内存的使用，合理规划字段的位置是不错的选择。
+
+最近在看 libuv 代码的时候，发现这个 `container_of` 的宏，实现的很有意思，根据某个字段在内存中的地址以及在结构体中的 offset 偏移量，获取结构体的地址。
+```c
+#define container_of(ptr, type, member) ({           \
+  const typeof(((type *)0)->member) *__mptr = (ptr); \
+  (type *)((char *)__mptr - offsetof(type, member)); \
+})
+```
+
 struct 的对齐规则，我看网上的文章也有介绍，我从 intel 那边抄点，其实基本就是按照基本类型的那种来补全
 1. > The alignment must be an integer multiple of the lowest common multiple between the alignments of all struct members.
 2. > The alignment must be a power of two
