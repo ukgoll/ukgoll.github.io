@@ -71,23 +71,12 @@ void heap_variable_address()
 ### stack and heap 中内存的从高到低
 要验证 stack 是高地址到低地址的话，不能直接使用定义变量，判断变量的地址变化，因为系统有时候会优化内存布局，**保证内存对齐导致那些后定义变量的地址反而在前面**。
 
-像下面这个简单的程序，如果按照 stack 地址从高到低的，那么显然是逐渐减少的
-```c
-void test_stack_de()
-{
-  int a = 1;
-  long b = 2;
-  short c = 3;
-  printf("a address: %p, b address: %p, c address: %p\n", &a, &b, &c);
-}
-```
-1. `Ubuntu`: 结果是 **a address: 0xffffd4cd773c, b address: 0xffffd4cd7740, c address: 0xffffd4cd773a**
-2. `FreeBSD`: 结果是 **a address: 0x80632e2c, b address: 0x80632e20, c address: 0x80632e1e**
-3. `MacOS`: 结果是 **a address: 0x16dc52a5c, b address: 0x16dc52a50, c address: 0x16dc52a4e**
 
-可以看到在 `MacOS` 和 `FreeBSD` 上都是正常的，而在 `Ubuntu` 上不仅没有减少，反而为了对齐，变成了 `b > a > c`，虽然上面的内存布局是大部分，但是 Ubuntu 不应该。
+#### 2025-06-11 补充
+按照 `x84_64 abi 0.99`来说是架构有关，如 `x86_64` 架构上，在 `rsp` 区域下有 128 字节的 `red zone` 可以给 [`leaf function`](https://gcc.gnu.org/onlinedocs/gccint/Leaf-Functions.html)使用，我们上面的例子就是很经典的，如果使用了递归调用就不是 leaf function，就有了自己的 `stack frame` 形成了。
 
-在 [reddit](https://www.reddit.com/r/linuxquestions/comments/13vc4xb/memory_layout_why_isnt_my_stack_address_decreasing/) 上面发现了一个好方法，反复调用函数形成 **栈帧**
+
+
 
 ```c
 void test_stack_de(int times)
