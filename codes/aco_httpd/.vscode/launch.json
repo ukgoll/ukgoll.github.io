@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "调试 main",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/aco_httpd", // 替换为你的程序名
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "stopOnEntry": false
+    }
+  ]
+}

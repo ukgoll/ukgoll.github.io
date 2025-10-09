@@ -1,0 +1,14 @@
+standrad input fd file inode is 37646361, standrad output fd file inode is 37649142
+now input fd file inode is 37646361, now output fd file inode is 37649142
+read data is #include <stdio.h>
+#include <stdlib.h>
+#include <sys/stat.h>
+#include <unistd.h>
+
+int main(int argc, char const *argv[])
+{
+  struct stat std_input_stat;
+  if (stat("/dev/fd/0", &std_input_stat) == -1)
+  {
+    printf("get standrad input fd stat error\n");
+

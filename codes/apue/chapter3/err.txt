@@ -1,0 +1,3 @@
+test error
+test output
+Read from stdin: Test input for dup_usage.c

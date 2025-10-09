@@ -1,0 +1,5 @@
+hello, world
+try buff for fork
+process id is 37572, and parent id is 37571, global val is 100, val is 89
+try buff for fork
+process id is 37571, and parent id is 37556, global val is 99, val is 88

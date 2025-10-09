@@ -1,0 +1,11 @@
+{
+	"files.associations": {
+		"aco.h": "c",
+		"_osbyteorder.h": "c",
+		"types.h": "c",
+		"ios": "c",
+		"istream": "c",
+		"inet.h": "c",
+		"_types.h": "c"
+	}
+}
