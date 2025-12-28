@@ -1,8 +1,8 @@
 # Preface
-近日重新读了一下 《流畅的Python》这本书籍里关于协程的这一块，重读带来的感受还是不一样，对于 Python 协程的理解和应用友多了一些感悟。
+近日重新读了一下 《流畅的Python》这本书籍里关于协程的这一块，重读带来的感受还是不一样，对于 Python 协程的理解和应用又多了一些感悟。
 
 # yield 和 yield from 关键字
-在 Python3.5 以前，没有 `async` 和 `await` 两个关键字，在这之前大部分都是使用的是 `yield` 和 `yield from` 两个关键字。这两个关键词只能用在函数里面，使用了这两个关键词的函数被称之为 **协程函数**，协程函数不会直接调用，他会返回一个 **生成器** 对象。（TODO）使用 [next()](https://docs.python.org/3/library/functions.html#next) 函数启动。使用 `async` 定义的协程返回的是啥 `协程对象`(实现了 `__await__` 协议)。
+在 Python3.5 以前，没有 `async` 和 `await` 两个关键字，在这之前大部分都是使用的是 `yield` 和 `yield from` 两个关键字。这两个关键词只能用在函数里面，使用了这两个关键词的函数被称之为 **协程函数**，协程函数不会直接调用，他会返回一个 **生成器** 对象。使用 [next()](https://docs.python.org/3/library/functions.html#next) 函数启动。使用 `async` 定义的协程返回的是 `协程对象`(实现了 `__await__` 协议)。
 
 
 ## 协程函数
@@ -15,6 +15,7 @@
 2. `GEN_RUNNING`
 3. `GEN_SUSPENDED` 暂停在 `yield` 表达式处
 4. `GEN_CLOSED` 已关闭的状态
+
 
 ``` python
 from inspect import getgeneratorstate
@@ -52,6 +53,8 @@ if __name__ == "__main__":
 
 #### send 
 > 恢复执行并向生成器函数“发送”一个值。 value 参数将成为当前 yield 表达式的结果。 send() 方法会返回生成器所产生的下一个值，或者如果生成器没有产生下一个值就退出则会引发 StopIteration。 当调用 send() 来启动生成器时，它必须以 None 作为调用参数，因为这时没有可以接收值的 yield 表达式。(当然也可以用 next 函数来激活协程)
+
+
 ```python
 def send_coro():
 	i_str = yield "return when start"
