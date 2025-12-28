@@ -1,3 +1,10 @@
+---
+title: "Python yield 生成函数"
+date: 2025-12-28 19:19:00 +0800
+categories: [Python, Async]
+tags: [Python, Async]
+---
+
 # Preface
 近日重新读了一下 《流畅的Python》这本书籍里关于协程的这一块，重读带来的感受还是不一样，对于 Python 协程的理解和应用又多了一些感悟。
 
