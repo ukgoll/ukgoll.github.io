@@ -1,5 +1,5 @@
 ---
-title: "Python yield 生成函数"
+title: "Python yield 协程函数"
 date: 2025-12-28 19:19:00 +0800
 categories: [Python, Async]
 tags: [Python, Async]
@@ -26,7 +26,6 @@ tags: [Python, Async]
 
 ``` python
 from inspect import getgeneratorstate
-
 
 def coro_state():
 	input_co = yield "retrun value"
