@@ -8,6 +8,9 @@ namespace
   int internal_age = 100;
 } // namespace
 
+extern int externalAge = 10;
+static int internalAge = 10;
+
 namespace ANameSpace
 {
   int age = 20;

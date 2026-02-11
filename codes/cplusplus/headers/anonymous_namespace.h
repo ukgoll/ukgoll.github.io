@@ -5,4 +5,5 @@ namespace ANameSpace
   void print();
 } // namespace ANameSpace
 
+
 #endif // ANONYMOUS_TEST

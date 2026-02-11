@@ -29,7 +29,6 @@ libaco 的代码库里面支持 `x86` 32 平台 和 `x86_64` 64 位平台，没�
 2. `share stack` 如上所述，`no-main coroutine` 和 `no-main coroutine` 可以共享 `share_stack` 能显著的降低内存损耗。
 
 ```c
-
 struct aco_s{
     // cpu registers' state
     // 定义 reg 数字来保存 cpu register 的状态
@@ -649,4 +648,4 @@ acosw:
 ## 实践
 如上就是关于 libaco 的原理和实现过程，但是每一次从 `no-main couroutine` `aco_yield` 到 `main coroutine`，如果这个 `no-main coroutine` 还有代码要执行呢，为何没有像 `python twisted` 那样自动切换到需要继续执行的 `coroutine`，这个就是要自己结合业务代码实际的去实现 `schedule` 调度了。
 
-对于我而言，我学习这个是为了更好的了解 socket 服务器的编写，根据网上的信息和对 coroutine 的理解，使用 coroutine 来编写 socket 服务器并不会提升多少性能，比较同一个时间段还是只能一个 coroutine 在运行，但是他能以异步的模式来编写同步的代码，这样写起来就不会那么的麻烦，能提高程序的可维护性和可读性。
+对于我而言，我学习这个是为了更好的了解 socket 服务器的编写，根据网上的信息和对 coroutine 的理解，使用 coroutine 来编写 socket 服务器并不会提升多少性能，毕竟同一个时间段还是只能一个 coroutine 在运行，但是他能以异步的模式来编写同步的代码，这样写起来就不会那么的麻烦，能提高程序的可维护性和可读性。
